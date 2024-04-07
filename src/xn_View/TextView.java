@@ -11,6 +11,7 @@ public class TextView extends JFrame {
     private JFileChooser fileChooser;
     private JButton openButton;
     private JButton saveButton;
+    private JButton removeEmptyLinesButton;
     private TextController controller;
 
     public TextView(TextController controller) {
@@ -30,12 +31,15 @@ public class TextView extends JFrame {
         JPanel buttonPanel = new JPanel();
         openButton = new JButton("Load");
         saveButton = new JButton("Save");
+        removeEmptyLinesButton = new JButton("Remove Empty Lines");
         buttonPanel.add(openButton);
         buttonPanel.add(saveButton);
-        add(buttonPanel, BorderLayout.SOUTH);
+        buttonPanel.add(removeEmptyLinesButton);
+        add(buttonPanel, BorderLayout.NORTH);
 
         openButton.addActionListener(e -> controller.openButtonClicked());
         saveButton.addActionListener(e -> controller.saveButtonClicked());
+        removeEmptyLinesButton.addActionListener(e -> controller.removeEmptyLines());
     }
 
     public String getText() {

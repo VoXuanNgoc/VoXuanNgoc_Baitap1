@@ -31,7 +31,19 @@ public class TextModel {
             e.printStackTrace();
         }
     }
+    
+    public void removeEmptyLines() {
+        String[] lines = text.split("\\r?\\n");
+        ArrayList<String> nonEmptyLines = new ArrayList<>();
 
+        for (String line : lines) {
+            if (!line.trim().isEmpty()) {
+                nonEmptyLines.add(line);
+            }
+        }
+
+        text = String.join("\n", nonEmptyLines);
+    }
     public String getText() {
         return text;
     }

@@ -29,7 +29,11 @@ public class TextController {
 			model.saveFile(file, view.getText());
 		}
 	}
-
+	
+	public void removeEmptyLines() {
+	        model.removeEmptyLines();
+	        view.setText(model.getText());
+	}
 	public static void main(String[] args) {
 
 			TextModel model = new TextModel();
